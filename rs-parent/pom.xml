@@ -5,7 +5,35 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>weclick :: parent</name>
+  <description>weclick 父项目</description>
+  <!-- 属性定义开始 -->
+  <properties>
+  	<jdk.version>1.7</jdk.version>
+  </properties>
+  <!-- 属性定义结束 -->
   <modules>
   	<module>rs-design</module>
   </modules>
+  
+  <build>
+  	<pluginManagement>
+		<plugins>
+			<!-- 编译 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+  	</pluginManagement>
+  	<!-- 默认让所有子项目使用 在这里指定的JDK版本编译 -->
+  	<plugins>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+  	</plugins>
+  </build>
 </project>
