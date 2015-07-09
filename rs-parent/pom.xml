@@ -11,16 +11,35 @@
   	<jdk.version>1.7</jdk.version>
   	<pushlet.version>2.0.4.1</pushlet.version>
   	<redis.version>2.0.0</redis.version>
+  	<activemq.version>5.8.0</activemq.version>
+  	<logback.version>1.1.2</logback.version>
+  	<slf4j.version>1.7.8</slf4j.version>
+  	<junit.version>4.10</junit.version> 
+  	<mongodb.version>2.10.1</mongodb.version>
   </properties>
   <!-- 属性定义结束 -->
   <modules>
   	<module>rs-design</module>
   	<module>rs-redis</module>
   	<module>rs-mq</module>
+  	<module>rs-mongodb</module>
   </modules>
   
   <dependencyManagement>
   	<dependencies>
+  		<!-- mongodb -->
+		<dependency>
+		    <groupId>org.mongodb</groupId>
+		    <artifactId>mongo-java-driver</artifactId>
+		    <version>${mongodb.version}</version>
+		</dependency>
+  		<!-- mq -->
+			<dependency>
+				<groupId>org.apache.activemq</groupId>
+				<artifactId>activemq-all</artifactId>
+				<version>${activemq.version}</version>
+			</dependency>
+				<!-- mq -->
 			<dependency>
 				<groupId>nl.justobjects</groupId>
 				<artifactId>pushlet</artifactId>
@@ -47,6 +66,53 @@
 				<version>${redis.version}</version> 
 				<scope>compile</scope> 
 			</dependency> 
+			<!-- 日志 -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- logback -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+
+			<!-- 代码直接调用log4j会被桥接到slf4j -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- 代码直接调用commons-logging会被桥接到slf4j -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- 代码直接调用java.util.logging会被桥接到slf4j -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jul-to-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- log4jdbc -->
+			<dependency>
+				<groupId>com.googlecode.log4jdbc</groupId>
+				<artifactId>log4jdbc</artifactId>
+				<version>1.2</version>
+				<scope>runtime</scope>
+			</dependency>	
+			<dependency>
+		    	<groupId>junit</groupId>
+		    	<artifactId>junit</artifactId>
+		    	<version>${junit.version}</version>
+		</dependency>		
   	</dependencies>
   </dependencyManagement>
   
