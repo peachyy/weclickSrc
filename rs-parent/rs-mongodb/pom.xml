@@ -5,19 +5,19 @@
     <artifactId>rs-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
-  </parent>
-  <artifactId>rs-design</artifactId>
-  <name>welick :: design</name>
+  </parent> 
   
-  
+  <name>rs-mongodb</name>
+  <artifactId>rs-mongodb</artifactId>
+  <description>mongodb for java示例</description>
   <dependencies>
-  	<dependency>
-		<groupId>nl.justobjects</groupId>
-		<artifactId>pushlet</artifactId>
-  	</dependency>
-	  <dependency>
-		 <groupId>ch.qos.logback</groupId>
-		 <artifactId>logback-classic</artifactId>  
-	  </dependency>
+		<dependency>
+		    <groupId>org.mongodb</groupId>
+		    <artifactId>mongo-java-driver</artifactId>
+		</dependency>
+			<dependency>
+		    	<groupId>junit</groupId>
+		    	<artifactId>junit</artifactId>
+		    	</dependency>		
   </dependencies>
 </project>
