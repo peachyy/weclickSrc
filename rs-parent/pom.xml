@@ -133,8 +133,10 @@
   	</pluginManagement>
   	<!-- 默认让所有子项目使用 在这里指定的JDK版本编译 -->
   	<plugins>
+		<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-compiler-plugin</artifactId>
+		</plugin>
   	</plugins>
   </build>
 </project>
